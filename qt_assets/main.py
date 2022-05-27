@@ -2,6 +2,8 @@ from utils import resource_path
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtCore import QTextStream
+from PyQt5.QtCore import QFile
 from PyQt5.uic import loadUi
 
 from qt_assets.tabs import TABS
@@ -45,10 +47,16 @@ class YouTubeDownloader(QMainWindow):
         error_dialog = ErrorDialog(error_msg)
         error_dialog.exec_()
 
-
 def launch_app():
     import sys
     app = QApplication(sys.argv)
+
+    # Import the mystyle.qss
+    #---------------------------------------------------
+    with open("qt_assets/mystyle.qss",'r') as f:
+    	qss = f.read()
+    	app.setStyleSheet(qss)
+
     ytdl = YouTubeDownloader()
     sys.exit(app.exec_())
 

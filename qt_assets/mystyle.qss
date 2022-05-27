@@ -1,0 +1,12 @@
+QPushButton{
+    font-size: 10pt;
+}
+
+QLineEdit{
+    font-size: 10pt;
+}
+
+QLabel {
+    font-size: 10pt;
+}
+
